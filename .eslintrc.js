@@ -23,7 +23,10 @@ module.exports = {
     'prettier/prettier': 'error',
     'import/extensions': 'off',
     'import/no-unresolved': 'error',
+    'class-methods-use-this': 'off',
+
     'no-console': 'off',
+    esModuleInterop: 'off',
     'import/order': [
       'error',
       {
