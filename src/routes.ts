@@ -71,8 +71,6 @@ router.post('/favorite', async (request, response) => {
       ...request.body,
       token: request.headers.token,
     };
-    console.log(model);
-
     const res = await repo.save(model);
     return response.status(201).json(res);
   } catch (error) {
