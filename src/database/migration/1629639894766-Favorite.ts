@@ -14,8 +14,8 @@ export default class Favorite1629639894766 implements MigrationInterface {
             default: 'uuid_generate_v4()',
           },
           { name: 'token', type: 'varchar' },
-          { name: 'appId', type: 'varchar' },
-          { name: 'rating', type: 'varchar' },
+          { name: 'appId', type: 'int' },
+          { name: 'rating', type: 'int' },
         ],
       }),
     );
