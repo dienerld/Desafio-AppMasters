@@ -41,7 +41,7 @@ router.get('/', async (request, response) => {
   if (fullData) {
     return response.send(fullData);
   }
-  return response.status(404);
+  return response.status(404).send();
 });
 
 router.get('/:id', async (request, response, next) => {
