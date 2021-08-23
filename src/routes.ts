@@ -2,7 +2,7 @@ import axios from 'axios';
 import express from 'express';
 import { getRepository } from 'typeorm';
 import cache from 'memory-cache';
-import Favorite from './entity/Favorite';
+import Favorite from './models/Favorite';
 
 const router = express.Router();
 
@@ -10,7 +10,9 @@ const getGameDetails = async (appId: string) => {
   try {
     let details = cache.get(appId);
     if (!details) {
-      const { data } = await axios(`https://store.steampowered.com/api/appdetails?appids=${appId}`);
+      const { data } = await axios(
+        `https://store.steampowered.com/api/appdetails?appids=${appId}`,
+      );
       details = data[appId].data;
       cache.put(appId, details);
     }
@@ -24,7 +26,9 @@ const getFullGames = async () => {
   try {
     let fullData = cache.get('fullData');
     if (!fullData) {
-      const { data } = await axios('https://api.steampowered.com/ISteamApps/GetAppList/v0002/?format=json');
+      const { data } = await axios(
+        'https://api.steampowered.com/ISteamApps/GetAppList/v0002/?format=json',
+      );
       fullData = data.applist.apps;
       cache.put('fullData', fullData);
       return fullData;
