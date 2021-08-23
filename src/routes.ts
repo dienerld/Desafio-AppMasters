@@ -19,7 +19,7 @@ const getGameDetails = async (appId: string) => {
     return details;
   } catch (error) {
     console.log(error);
-    return error;
+    return undefined;
   }
 };
 const getFullGames = async () => {
@@ -31,19 +31,19 @@ const getFullGames = async () => {
       );
       fullData = data.applist.apps;
       cache.put('fullData', fullData);
-      return fullData;
     }
+
     return fullData;
   } catch (error) {
     console.log(error);
-    return null;
+    return undefined;
   }
 };
 
 router.get('/', async (request, response) => {
   const fullData = await getFullGames();
   if (fullData) {
-    return response.send(fullData);
+    return response.json(fullData);
   }
   return response.status(404).send();
 });
@@ -53,9 +53,9 @@ router.get('/:id', async (request, response, next) => {
   if (appId.match('\\d')) {
     const gameDetails = await getGameDetails(appId);
     if (gameDetails) {
-      response.send(gameDetails);
+      response.json(gameDetails);
     } else {
-      response.status(404).send(gameDetails);
+      response.status(404).send();
     }
   } else {
     next();
@@ -103,7 +103,7 @@ router.delete('/favorite/:appid', async (request, response) => {
     const repo = getRepository(Favorite);
     const object = await repo.find({ where: model });
     const res = await repo.remove(object);
-    return response.send(res);
+    return response.json(res);
   } catch (error) {
     return response.status(400).send();
   }
