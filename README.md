@@ -3,8 +3,8 @@
 </h1>
 
 <p align="center">
-  <a href="https://api-steam-diener.herokuapp.com/">API-Steam-Diener</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="http://appmasters.io/">App Masters</a>
+  <a href="https://api-steam-diener.herokuapp.com/" target="_blank">API-Steam-Diener</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="http://appmasters.io/" target="_blank">App Masters</a>
 </p>
 
 ## Sobre o Projeto
