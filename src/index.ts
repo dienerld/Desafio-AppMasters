@@ -1,6 +1,9 @@
+import dotenv from 'dotenv-safe';
 import express from 'express';
 import { createConnection } from 'typeorm';
 import router from './routes';
+
+dotenv.config();
 
 const app = express();
 const port = 5500;
