@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export default class Favorite {
@@ -6,7 +6,7 @@ export default class Favorite {
   id: string;
 
   @Column()
-  token: string;
+  userHash: string;
 
   @Column()
   appId: number;
