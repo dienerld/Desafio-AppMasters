@@ -27,22 +27,22 @@ Agora você pode acessar `localhost:` com a `porta` escolhida pelo API Client es
 
 ### Rotas
 
-**GET** em `/` Retorna todos jogos listados pela [API da Steam](https://api.steampowered.com/ISteamApps/GetAppList/v0002/?format=json)
+**`GET`** em `/` Retorna todos jogos listados pela [API da Steam](https://api.steampowered.com/ISteamApps/GetAppList/v0002/?format=json)
 
-**GET** em `/:id` Retorna informações completas sobre o jogo
+**`GET`** em `/:id` Retorna informações completas sobre o jogo
 
-**POST** em `/favorite` Inclui jogo como favorito
+**`POST`** em `/favorite` Inclui jogo como favorito
 
 - ### Body
 
-  - rating
-  - appId
+  - `rating`
+  - `appId`
 
-**GET** em `/favorite` Retorna todos jogos salvos pelo usuário
+**`GET`** em `/favorite` Retorna todos jogos salvos pelo usuário
 
-**DELETE** em `/favorite/:id` Exclui jogo selecionado da lista de favoritos
+**`DELETE`** em `/favorite/:id` Exclui jogo selecionado da lista de favoritos
 
-Para rotas `/favorite` é necessário conter um `token` na `request.headers` para autenticação de usuário.
+Para rotas `/favorite` é necessário conter um `user-hash` em `request.headers` para autenticação de usuário.
 
 ---
 
